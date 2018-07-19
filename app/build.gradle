@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+def config = rootProject.ext.android
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+    defaultConfig {
+        applicationId "com.lk.sf.wx"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersiontargetSdkVersion
+        versionCode config.versionCode
+        versionCode config.versionCode
+        multiDexEnabled config.multiDexEnabled
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "32bde31bccc1ae2d816b3fe7",
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
+        dataBinding {
+            enabled = true
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:support-v4:$supportLibraryVersion"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    api project(':zxing')
+
+    implementation "com.android.support.constraint:constraint-layout:$constraintVersion"
+
+    implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    //noinspection GradleDependency
+    kapt "com.android.databinding:compiler:$dataBindingCompilerVersion"
+
+    /*极光推送*/
+    implementation "cn.jiguang.sdk:jpush:$jpushVersion"
+    implementation "cn.jiguang.sdk:jcore:$jcoreVersion"
+    /*multi_dex*/
+    implementation 'com.android.support:multidex:1.0.0'
+
+    /*retrofit*/
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+    /*okHttp*/
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
+    /*rxjava*/
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    /*工具类*/
+    implementation 'com.blankj:utilcode:1.16.1'
+
+    /**
+     * 底部导航
+     */
+    implementation 'com.github.wintonBy:BottomNavigationView:1.0'
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+}

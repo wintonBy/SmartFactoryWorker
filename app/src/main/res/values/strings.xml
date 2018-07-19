@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">LKT智能工厂</string>
+    <string name="app_slogan">专注，成就品质</string>
+
+    <string name="username">用户名</string>
+    <string name="username_hint">用户名</string>
+    <string name="password">密码</string>
+    <string name="password_hint">密码</string>
+    <string name="login">登　　录</string>
+
+    <string name="sign_in">打卡</string>
+    <string name="work_data">生产</string>
+    <string name="device">设备</string>
+    <string name="call">呼叫</string>
+    <string name="me">我的</string>
+    <string name="about">关于</string>
+    <string name="factory_info">企业信息</string>
+    <string name="service_info">服务信息</string>
+    <string name="system_setting">设置</string>
+    <string name="version_info">版本信息</string>
+
+    <string name="loading">加载中...</string>
+    <string name="code_timeout_tip">登录失效，请重新登录</string>
+    
+    <string name="call_manager">呼叫主管</string>
+    <string name="call_tech">呼叫技术</string>
+    <string name="call_logistics">呼叫物流</string>
+    <string name="call_quality">呼叫质量</string>
+    <string name="call_support">呼叫维修</string>
+    <string name="other_company">豫鹏机械厂智能工厂手机端</string>
+    <string name="sign_tip">温馨提示：上班前请仔细检查车床运行情况，认真做好安全防护工作！</string>
+
+    <string name="develop_company">杭州领克信息科技有限公司</string>
+    <string name="developer_site">www.lingkexinxi.com</string>
+    <string name="developer_address">联系地址：杭州市经济技术开发区白杨街道6号大街452号2-D1810</string>
+    <string name="developer_call">服务电话：0571-56071258</string>
+    <string name="developer_nick_name">技术专员：江工程师</string>
+    <string name="developer_phone">专员电话：13858033500</string>
+    <string name="developer_site_f">公司网址：www.lingkexinxi.com</string>
+    <string name="call_service">呼叫0571-56071258</string>
+    <string name="call_num">0571-56071258</string>
+    <string name="check_update">检查更新</string>
+    <string name="logout">注销登录</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    <string name="version_p">版本：%s</string>
+
+    <string name="unbind">解绑</string>
+</resources>
