@@ -1,5 +1,7 @@
 package com.lk.sf.smartfactoryworker.contract
 
+import com.lk.sf.smartfactoryworker.presenter.BasePresenter
+
 /**
  * @author: winton
  * @time: 2018/7/8 16:07
@@ -13,7 +15,9 @@ interface LoginContract {
     interface View{
         fun showError(msg:String)
 
-        fun onLoginSuccess()
+        fun toWorkIndex()
+
+        fun toSupportIndex()
 
         fun showLoading(show:Boolean)
 
@@ -22,7 +26,7 @@ interface LoginContract {
         fun fitPassword(password: String)
     }
 
-    interface Presenter{
+    interface Presenter:BasePresenter{
         /**
          * 进行登录
          */
@@ -32,5 +36,6 @@ interface LoginContract {
          * 初始化
          */
         fun doInit()
+
     }
 }

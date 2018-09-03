@@ -12,15 +12,14 @@ import com.lk.sf.smartfactoryworker.bean.Device
  */
 class DeviceRepository {
 
-    fun getDevice(deviceId:String):Device?{
-
-    }
-
     companion object {
         @Volatile private var instance:DeviceRepository? = null
 
-        fun getInstance() = instance?: synchronized(this){
+        fun instance() = instance?: synchronized(this){
             instance?:DeviceRepository().also { instance = it }
         }
     }
+
+
+
 }

@@ -22,6 +22,7 @@ android {
                 JPUSH_APPKEY : "32bde31bccc1ae2d816b3fe7",
                 JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
+        buildConfigField "String", "BugleAppID", "\"${config.buglyAppId}\""
         ndk {
             //选择要添加的对应cpu类型的.so库。
             abiFilters 'armeabi', 'armeabi-v7a'
@@ -31,6 +32,22 @@ android {
         }
 
     }
+    signingConfigs {
+        debug {
+            storeFile file('../key/lk.jks')
+            storePassword 'lk2018'
+            keyAlias 'key0'
+            keyPassword 'lk2018'
+        }
+
+        release {
+            storeFile file('../key/lk.jks')
+            storePassword 'lk2018'
+            keyAlias 'key0'
+            keyPassword 'lk2018'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -84,4 +101,11 @@ dependencies {
      */
     implementation 'com.github.wintonBy:BottomNavigationView:1.0'
     implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$supportLibraryVersion"
+
+    /**
+     * bugly
+     */
+    implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.r
 }

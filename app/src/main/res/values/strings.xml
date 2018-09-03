@@ -46,4 +46,10 @@
     <string name="version_p">版本：%s</string>
 
     <string name="unbind">解绑</string>
+    <string name="scan_to_bind">扫描绑定</string>
+    <string name="binded_device">已绑定设备</string>
+    <string name="scan_source_code">扫描物料码</string>
+    <string name="scan_response">扫码响应</string>
+    <string name="choose_caller">选择呼叫的人</string>
+    <string name="network_unavailable">网络不可用</string>
 </resources>

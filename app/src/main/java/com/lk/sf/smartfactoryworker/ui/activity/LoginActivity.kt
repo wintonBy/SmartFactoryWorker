@@ -76,8 +76,13 @@ class LoginActivity:BaseActivity<ActLoginBinding,LoginPresenter>(),LoginContract
         SnackbarUtils.with(window.decorView).setMessage(msg).showError()
     }
 
-    override fun onLoginSuccess() {
+    override fun toWorkIndex() {
         WorkerIndexActivity.start(this@LoginActivity)
+        this@LoginActivity.finish()
+    }
+
+    override fun toSupportIndex() {
+        SupportIndexActivity.start(this@LoginActivity)
         this@LoginActivity.finish()
     }
 

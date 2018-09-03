@@ -67,7 +67,9 @@ abstract class BaseActivity<T: ViewDataBinding,P:BasePresenter?>: AppCompatActiv
     }
 
     override fun onDestroy() {
-        super.onDestroy()
+        mPresenter?.onDestroy()
         MyApplication.instance.removeActivity(this)
+        super.onDestroy()
+
     }
 }

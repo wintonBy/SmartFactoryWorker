@@ -6,6 +6,7 @@ ext{
             targetSdkVersion    :  27,
             versionCode         :   1,
             versionName         :   "1.0.0",
-            multiDexEnabled     :   true
+            multiDexEnabled     :   true,
+            buglyAppId          :  "5ad16ce20c"
     ]
 }

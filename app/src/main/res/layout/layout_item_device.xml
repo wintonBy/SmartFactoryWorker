@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <data>
+        <import type="com.lk.sf.smartfactoryworker.bean.Device"/>
+        <variable
+            name="device"
+            type="Device"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+        <FrameLayout
+            android:layout_margin="10dp"
+            style="@style/CardStyle_Light"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/img_default"
+                android:id="@+id/iv_device"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+            <TextView
+                android:gravity="center"
+                android:text="@string/scan_to_bind"
+                android:id="@+id/tv_name"
+                android:singleLine="true"
+                android:layout_marginTop="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_margin="10dp"
+            style="@style/CardStyle_Light"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:textSize="@dimen/text_normal"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@mipmap/ic_code"
+                android:text="@string/scan_source_code"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+            <TextView
+                android:layout_marginTop="40dp"
+                android:text="当前批次：----"
+                android:id="@+id/tv_current"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            <TextView
+                android:layout_marginTop="60dp"
+                android:text="当前工序：----"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+</layout>

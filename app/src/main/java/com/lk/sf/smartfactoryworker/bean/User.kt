@@ -8,6 +8,11 @@ package com.lk.sf.smartfactoryworker.bean
  * @mail:
  * @describe: 用户类
  */
-class User:BaseBean()  {
-
+data class User(val id:Int){
+    var gender:Int = -1
+    var name:String = ""
+    var no:String = ""
+    var phone = ""
+    var type=""
+    var department:Department? = null
 }

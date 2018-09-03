@@ -4,10 +4,12 @@
     <data>
 
     </data>
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/white"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingBottom="20dp"
         android:paddingLeft="60dp"
@@ -16,113 +18,70 @@
 
         <ImageView
             android:id="@+id/iv_logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/iv_logo" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@mipmap/icon_linxin"
+            android:drawablePadding="5dp"
+            android:text="工号"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_x_normal" />
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/ic_launcher" />
+            android:gravity="center"
+            android:hint="请输入您的工号"
+            android:singleLine="true"
+            android:textColor="@color/black70"
+            android:textColorHint="@color/black30"
+            android:textSize="@dimen/text_big" />
 
-        <LinearLayout
-            android:id="@+id/ll_username"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@mipmap/icon_linxin"
+            android:drawablePadding="5dp"
+            android:text="密码"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_x_normal" />
+
+        <EditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/iv_logo"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/shape_input_login"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="15dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_username" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@android:color/darker_gray" />
-
-            <EditText
-                android:id="@+id/et_username"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_centerHorizontal="true"
-                android:background="@null"
-                android:hint="@string/username_hint"
-                android:singleLine="true"
-                android:textColor="@color/black70"
-                android:textColorHint="@color/black70"
-                android:textSize="@dimen/text_xx_small" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/ll_password"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/ll_username"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/shape_input_login"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="15dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_password" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@android:color/darker_gray" />
-
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_centerHorizontal="true"
-                android:background="@null"
-                android:hint="@string/password_hint"
-                android:inputType="textPassword"
-                android:singleLine="true"
-                android:textColor="@color/black70"
-                android:textColorHint="@color/black70"
-                android:textSize="@dimen/text_xx_small" />
-        </LinearLayout>
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:hint="请输入您的密码"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/black70"
+            android:textColorHint="@color/black30"
+            android:textSize="@dimen/text_big" />
 
 
         <Button
             android:id="@+id/bt_login"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/ll_password"
+            android:layout_height="60dp"
+            android:textSize="@dimen/text_x_normal"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:background="@drawable/shape_button_login"
             android:text="@string/login"
             android:textColor="@android:color/white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/other_company"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/text_x_normal" />
-
-        </LinearLayout>
-
-    </RelativeLayout>
+        <com.lk.sf.smartfactoryworker.widget.LoadingView
+            android:layout_width="60dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
 
 </layout>

@@ -8,6 +8,8 @@ package com.lk.sf.smartfactoryworker.presenter
  * @mail:
  * @describe: Presenter基类
  */
-open class BasePresenter {
+open interface BasePresenter {
+
+    fun onDestroy()
 
 }

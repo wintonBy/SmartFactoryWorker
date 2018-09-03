@@ -8,7 +8,7 @@ package com.lk.sf.smartfactoryworker.bean
  * @mail:
  * @describe: 升级消息体
  */
-class UpdateInfo:BaseBean() {
+class UpdateInfo{
     private val force: Int = 0
     private val id: Int = 0
     private val url: String? = null

@@ -1,7 +1,10 @@
 package com.lk.sf.smartfactoryworker.http
 
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.NetworkUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.lk.sf.smartfactoryworker.MyApplication
+import com.lk.sf.smartfactoryworker.R
 import io.reactivex.FlowableEmitter
 import io.reactivex.FlowableOnSubscribe
 import io.reactivex.FlowableSubscriber
@@ -46,10 +49,14 @@ open class BaseSubscriber<T:BaseResponse>:FlowableSubscriber<T> {
 
     override fun onError(t: Throwable?) {
         LogUtils.e(t)
-        onFailed(null,t?.message)
+        t?.message?.run { onFailed(-1,this) }
     }
     open fun onStart(s: Subscription){
-        s.request(Long.MAX_VALUE)
+        if(NetworkUtils.isAvailableByPing()){
+            s.request(Long.MAX_VALUE)
+        }else{
+            ToastUtils.showShort(R.string.network_unavailable)
+        }
     }
 
     open fun onSuccess(response:T){

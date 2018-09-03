@@ -1,15 +1,16 @@
 package com.lk.sf.smartfactoryworker.bean
 
-import java.io.Serializable
-
 /**
  * @author: winton
- * @time: 2018/7/12 22:21
+ * @time: 2018/8/25 16:17
  * @package: com.lk.sf.smartfactoryworker.bean
  * @project: SmartFactoryWorker
  * @mail:
- * @describe: Bean类的基类
+ * @describe: 部门
  */
-open class BaseBean :Serializable{
+data class Department(val id:Int) {
+    var name:String = ""
+    var no:String = ""
+    var descr:String=""
 
 }

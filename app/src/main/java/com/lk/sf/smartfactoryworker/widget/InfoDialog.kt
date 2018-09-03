@@ -22,11 +22,11 @@ import com.lk.sf.smartfactoryworker.R
  */
 open class InfoDialog {
 
-    private lateinit var mContext: Context
-    private lateinit var mDialogTip: AlertDialog
-    private lateinit var mTextTitle: TextView
-    private lateinit var mBtnConfirm: Button
-    private lateinit var mBtnCancel: Button
+    private var mContext: Context
+    private var mDialogTip: AlertDialog
+    private var mTextTitle: TextView
+    private var mBtnConfirm: Button
+    private var mBtnCancel: Button
     private var isShow = false
 
     constructor(context: Context,title:String,confirmRes:Int,cancelRes:Int?){

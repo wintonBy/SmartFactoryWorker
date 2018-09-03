@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.lk.sf.smartfactoryworker.R
 import com.lk.sf.smartfactoryworker.databinding.FragCallBinding
 import com.lk.sf.smartfactoryworker.ui.BaseFragment
+import com.lk.sf.smartfactoryworker.widget.CallListDialog
 
 /**
  * @author: winton
@@ -11,7 +12,7 @@ import com.lk.sf.smartfactoryworker.ui.BaseFragment
  * @package: com.lk.sf.smartfactoryworker.ui.fragment
  * @project: SmartFactoryWorker
  * @mail:
- * @describe: 一句话描述
+ * @describe: 呼叫页面
  */
 class CallFragment:BaseFragment<FragCallBinding>() {
 
@@ -23,8 +24,37 @@ class CallFragment:BaseFragment<FragCallBinding>() {
         }
     }
 
+    private val callerDialog:CallListDialog by lazy {
+        CallListDialog.newInstance()
+    }
+
     override fun getLayoutId(): Int {
         return R.layout.frag_call
+    }
+
+    override fun initListener() {
+        super.initListener()
+        binding!!.btCallManager.setOnClickListener {
+            callerDialog.role = "manager"
+            callerDialog.show(activity!!.supportFragmentManager,"callerList")
+        }
+        binding!!.btCallTech.setOnClickListener {
+            callerDialog.role = "tech"
+            callerDialog.show(activity!!.supportFragmentManager,"callerList")
+        }
+        binding!!.btCallQuality.setOnClickListener {
+            callerDialog.role = "quality"
+            callerDialog.show(activity!!.supportFragmentManager,"callerList")
+        }
+        binding!!.btCallSupport.setOnClickListener({
+            callerDialog.role = "support"
+            callerDialog.show(activity!!.supportFragmentManager,"callerList")
+        })
+        binding!!.btCallLogistics.setOnClickListener({
+            callerDialog.role = "logistics"
+            callerDialog.show(activity!!.supportFragmentManager,"callerList")
+        })
+
     }
 
 }

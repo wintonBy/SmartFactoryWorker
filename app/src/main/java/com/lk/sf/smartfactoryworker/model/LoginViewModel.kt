@@ -1,6 +1,8 @@
 package com.lk.sf.smartfactoryworker.model
 
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import com.lk.sf.smartfactoryworker.bean.User
 
 /**
  * @author: winton
@@ -10,6 +12,7 @@ import android.arch.lifecycle.ViewModel
  * @mail:
  * @describe: 登录页数据
  */
-class LoginViewModel:ViewModel(){
+class LoginViewModel:BaseViewModel(){
+
 
 }

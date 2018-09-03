@@ -2,18 +2,15 @@ package com.lk.sf.smartfactoryworker.ui.activity
 
 import android.content.Context
 import android.content.Intent
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import com.blankj.utilcode.util.FragmentUtils
+import android.view.View
+import android.widget.TextView
 import com.lk.sf.smartfactoryworker.R
 import com.lk.sf.smartfactoryworker.databinding.ActIndexWorkerBinding
-import com.lk.sf.smartfactoryworker.databinding.FragHomeBinding
 import com.lk.sf.smartfactoryworker.presenter.BasePresenter
 import com.lk.sf.smartfactoryworker.ui.BaseActivity
-import com.lk.sf.smartfactoryworker.ui.BaseFragment
 import com.lk.sf.smartfactoryworker.ui.fragment.CallFragment
 import com.lk.sf.smartfactoryworker.ui.fragment.DeviceFragment
 import com.lk.sf.smartfactoryworker.ui.fragment.HomeFragment
@@ -36,6 +33,8 @@ class WorkerIndexActivity:BaseActivity<ActIndexWorkerBinding,BasePresenter>() {
 
     private var currentIndex = -1
 
+    private lateinit var mTVTitle:TextView
+
     private val fm:FragmentManager by lazy{
         supportFragmentManager
     }
@@ -52,20 +51,23 @@ class WorkerIndexActivity:BaseActivity<ActIndexWorkerBinding,BasePresenter>() {
 
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
+        binding!!.action!!.findViewById<View>(R.id.iv_back).visibility = View.INVISIBLE
+        mTVTitle = binding!!.action!!.findViewById(R.id.tv_title)
         initFragments()
         initTab()
     }
 
     private fun initTab(){
         tabs = ArrayList()
-        tabs.add(NavigationView.Model.Builder(R.mipmap.ic_local_check,R.mipmap.ic_local).title("签到").build())
-        tabs.add(NavigationView.Model.Builder(R.mipmap.ic_device_check,R.mipmap.ic_device).title("加工").build())
+        tabs.add(NavigationView.Model.Builder(R.mipmap.ic_local_check,R.mipmap.ic_local).title("打卡").build())
+        tabs.add(NavigationView.Model.Builder(R.mipmap.ic_device_check,R.mipmap.ic_device).title("生产").build())
         tabs.add(NavigationView.Model.Builder(R.mipmap.ic_call_check,R.mipmap.ic_call).title("呼叫").build())
         tabs.add(NavigationView.Model.Builder(R.mipmap.ic_me_check,R.mipmap.ic_me).title("我的").build())
         binding!!.nv.setItems(tabs)
         binding!!.nv.build()
         binding!!.nv.check(0)
         changeFragment(0)
+        mTVTitle.text = "打卡"
     }
 
     override fun initListener() {
@@ -77,6 +79,7 @@ class WorkerIndexActivity:BaseActivity<ActIndexWorkerBinding,BasePresenter>() {
 
             override fun selected(p0: Int, p1: NavigationView.Model?) {
                 changeFragment(p0)
+                mTVTitle.text = p1!!.title
             }
         })
     }

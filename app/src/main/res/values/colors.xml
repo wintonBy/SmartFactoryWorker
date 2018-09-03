@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4E90C2</color>
-    <color name="colorPrimaryDark">#4E90C2</color>
-    <color name="colorAccent">#4E90C2</color>
+    <color name="colorPrimary">#275AA1</color>
+    <color name="colorPrimaryDark">#275AA1</color>
+    <color name="colorAccent">#275AA1</color>
 
-    <color name="page_color">#F8F8F8</color>
+    <color name="page_color">#B7C0CC</color>
 
     <color name="button_uncheck0">#466FAD</color>
     <color name="button_uncheck1">#215390</color>

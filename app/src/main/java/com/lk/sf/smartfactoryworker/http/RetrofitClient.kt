@@ -1,10 +1,12 @@
 package com.lk.sf.smartfactoryworker.http
 
+import android.bluetooth.BluetoothClass
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.lk.sf.smartfactoryworker.MyApplication
 import com.lk.sf.smartfactoryworker.constant.DeveloperConfig
+import com.lk.sf.smartfactoryworker.http.response.LoginResponse
 import com.lk.sf.smartfactoryworker.http.response.UpdateInfoResponse
 import com.lk.sf.smartfactoryworker.utils.ScheduelHelper
 import io.reactivex.*
@@ -27,7 +29,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitClient {
     private const val DEFAULT_TIMEOUT = 15L
 
-    private lateinit var server:ApiServer
+    private var server:ApiServer
     init {
         var cookJar = PersistentCookieJar(SetCookieCache(),SharedPrefsCookiePersistor(MyApplication.instance))
         var okBuilder = OkHttpClient.Builder()
@@ -50,8 +52,29 @@ object RetrofitClient {
 
     /*********************************接口方法********************************/
 
-    fun checkUpdate(subscriber: FlowableSubscriber<UpdateInfoResponse>){
+    /**
+     * 检测升级
+     */
+    fun checkUpdate(subscriber: BaseSubscriber<UpdateInfoResponse>){
         server.updateInfo()
+                .compose(ScheduelHelper.compose())
+                .subscribe(subscriber)
+    }
+
+    /**
+     * 登录
+     */
+    fun doLogin(name:String,pwd:String,subscriber: BaseSubscriber<LoginResponse>){
+        server.login(name,pwd)
+                .compose(ScheduelHelper.compose())
+                .subscribe(subscriber)
+    }
+
+    /**
+     * 绑定设备
+     */
+    fun bindDevice(deviceId:String,bind:Boolean,subscriber: BaseSubscriber<BaseResponse>){
+        server.bindDevice(deviceId,bind)
                 .compose(ScheduelHelper.compose())
                 .subscribe(subscriber)
     }

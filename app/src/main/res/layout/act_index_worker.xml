@@ -6,6 +6,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <include
+            android:id="@+id/action"
+            layout="@layout/layout_action"/>
         <FrameLayout
             android:id="@+id/fl_content"
             android:layout_width="match_parent"
@@ -30,7 +33,6 @@
             app:unactiveTextColor="@android:color/darker_gray"
             app:activeTextColor="@color/colorPrimary"
             >
-
         </com.winton.bottomnavigationview.NavigationView>
 
     </LinearLayout>

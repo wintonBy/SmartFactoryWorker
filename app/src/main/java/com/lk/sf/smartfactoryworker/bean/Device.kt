@@ -11,8 +11,7 @@ import android.arch.persistence.room.Entity
  * @describe: 设备描述类
  */
 
-@Entity(tableName = "devices")
-class Device:BaseBean() {
-    var id:String? = null
-    var name:String? = null
-}
+data class Device (
+    var id:String,
+    var name:String
+)

@@ -7,7 +7,9 @@ import android.support.multidex.MultiDex
 import cn.jpush.android.api.JPushInterface
 import com.blankj.utilcode.util.ToastUtils
 import com.blankj.utilcode.util.Utils
+import com.lk.sf.smartfactoryworker.constant.DeveloperConfig
 import com.lk.sf.smartfactoryworker.ui.activity.LoginActivity
+import com.tencent.bugly.crashreport.CrashReport
 import com.zxing.activity.ZXingLibrary
 import kotlin.properties.Delegates
 
@@ -37,8 +39,10 @@ class MyApplication:Application(){
         activitys = ArrayList()
         MultiDex.install(this)
         initUtils()
-        JPushInterface.setDebugMode(true)
+
+        JPushInterface.setDebugMode(DeveloperConfig.isDebug)
         JPushInterface.init(this)
+        CrashReport.initCrashReport(this,BuildConfig.BugleAppID,DeveloperConfig.isDebug)
         ZXingLibrary.initDisplayOpinion(this)
     }
 

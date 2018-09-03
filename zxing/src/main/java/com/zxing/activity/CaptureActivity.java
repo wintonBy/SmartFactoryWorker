@@ -8,6 +8,9 @@ import android.util.Log;
 
 import com.zxing.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Initial the camera
