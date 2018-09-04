@@ -1,7 +1,5 @@
 package com.lk.sf.smartfactoryworker.bean
 
-import android.arch.persistence.room.Entity
-
 /**
  * @author: winton
  * @time: 2018/7/13 21:12

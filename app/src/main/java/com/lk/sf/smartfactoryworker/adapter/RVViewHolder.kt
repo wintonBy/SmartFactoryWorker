@@ -12,8 +12,14 @@ import android.view.View
  * @mail:
  * @describe: ViewHolder
  */
-class RVViewHolder :RecyclerView.ViewHolder{
+abstract class RVViewHolder :RecyclerView.ViewHolder{
     var binding:ViewDataBinding? = null
 
     constructor(view: View):super(view)
+
+    open fun bind(variableId:Int, value:Any){
+        binding?.setVariable(variableId,value)
+        binding?.executePendingBindings()
+    }
+
 }

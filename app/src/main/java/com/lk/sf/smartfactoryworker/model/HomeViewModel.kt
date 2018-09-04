@@ -2,7 +2,11 @@ package com.lk.sf.smartfactoryworker.model
 
 import android.arch.lifecycle.MutableLiveData
 import com.lk.sf.smartfactoryworker.bean.Device
+import com.lk.sf.smartfactoryworker.http.BaseResponse
+import com.lk.sf.smartfactoryworker.http.BaseSubscriber
+import com.lk.sf.smartfactoryworker.http.RetrofitClient
 import com.lk.sf.smartfactoryworker.repository.Resource
+import retrofit2.Retrofit
 
 /**
  * @author: winton
@@ -26,11 +30,37 @@ class HomeViewModel : BaseViewModel(){
         loadDevices()
     }
 
+    /**
+     * 绑定设备
+     */
     fun bindDevice(id:String){
-        list.add(Device("22","添加"))
-        list.add(Device("22","添加"))
-        devices.value = Resource.success(ArrayList<Device>(list))
+        RetrofitClient.bindDevice(id,true,object :BaseSubscriber<BaseResponse>(){
+
+            override fun onSuccess(response: BaseResponse) {
+                loadDevices()
+            }
+
+            override fun onFailed(code: Int?, msg: String?) {
+                loadDevices()
+            }
+        })
     }
+
+    /**
+     * 解绑设备
+     */
+    fun unbindDevice(id:String){
+        RetrofitClient.bindDevice(id,false,object :BaseSubscriber<BaseResponse>(){
+            override fun onSuccess(response: BaseResponse) {
+                loadDevices()
+            }
+
+            override fun onFailed(code: Int?, msg: String?) {
+                loadDevices()
+            }
+        })
+    }
+
 
     private fun loadDevices(){
         list.add(Device("12","测试"))

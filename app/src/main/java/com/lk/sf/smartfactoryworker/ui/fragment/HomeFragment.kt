@@ -14,6 +14,7 @@ import com.blankj.utilcode.util.SnackbarUtils
 import com.lk.sf.smartfactoryworker.BR
 import com.lk.sf.smartfactoryworker.R
 import com.lk.sf.smartfactoryworker.adapter.BaseRVAdapter
+import com.lk.sf.smartfactoryworker.adapter.BindDeviceAdapter
 import com.lk.sf.smartfactoryworker.bean.Device
 import com.lk.sf.smartfactoryworker.databinding.FragHomeBinding
 import com.lk.sf.smartfactoryworker.model.HomeViewModel
@@ -34,7 +35,7 @@ import com.zxing.activity.CodeUtils
  */
 class HomeFragment:BaseFragment<FragHomeBinding>() {
 
-    private lateinit var adapter:BaseRVAdapter<Device>
+    private lateinit var adapter:BindDeviceAdapter
 
     private lateinit var viewModel:HomeViewModel
 
@@ -74,9 +75,14 @@ class HomeFragment:BaseFragment<FragHomeBinding>() {
                Resource.LOADING ->{}
            }
         })
-        adapter = BaseRVAdapter(BindDeviceDiffCallback(),BR.device,R.layout.layout_item_bind_device)
+        adapter = BindDeviceAdapter(BindDeviceDiffCallback(),object :BindDeviceAdapter.ItemClick{
+            override fun unbind(device: Device) {
+                viewModel.unbindDevice(device.id)
+            }
+        })
         binding!!.rv.layoutManager = LinearLayoutManager(context)
         binding!!.rv.adapter = adapter
+
     }
 
     override fun initListener() {

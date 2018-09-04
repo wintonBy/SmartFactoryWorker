@@ -1,6 +1,7 @@
 package com.lk.sf.smartfactoryworker.http
 
 import com.lk.sf.smartfactoryworker.constant.DeveloperConfig
+import com.lk.sf.smartfactoryworker.http.response.BindDevicesResponse
 import com.lk.sf.smartfactoryworker.http.response.LoginResponse
 import com.lk.sf.smartfactoryworker.http.response.UpdateInfoResponse
 import io.reactivex.Flowable
@@ -41,4 +42,11 @@ interface ApiServer {
      */
     @POST("emp/bindDevice")
     fun bindDevice(@Query("deviceId")deviceId:String,@Query("bind") bind:Boolean):Flowable<BaseResponse>
+
+    /**
+     * 获取已绑定设备
+     */
+    @POST("emp/listBindedDevice")
+    fun getBindDevices():Flowable<BindDevicesResponse>
+
 }

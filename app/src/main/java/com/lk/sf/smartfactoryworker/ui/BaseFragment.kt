@@ -22,7 +22,7 @@ abstract class BaseFragment<T: ViewDataBinding>:Fragment(){
 
     var binding:T? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate<T>(layoutInflater, getLayoutId(),container,false);
+        binding = DataBindingUtil.inflate<T>(layoutInflater, getLayoutId(),container,false)
         var view:View = binding!!.root
         initListener()
         initData()

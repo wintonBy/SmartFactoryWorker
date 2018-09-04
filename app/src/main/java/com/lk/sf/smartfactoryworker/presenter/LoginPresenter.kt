@@ -41,6 +41,7 @@ class LoginPresenter:BasePresenter,LoginContract.Presenter {
                 super.onSuccess(response)
                 response.data?.run {
                     save(this.employee!!)
+                    toIndex(employee!!.type)
                 }?:kotlin.run {
                     mView.showError("数据异常")
                 }
@@ -57,6 +58,13 @@ class LoginPresenter:BasePresenter,LoginContract.Presenter {
                 mView.showError(msg?:"登录失败")
             }
         })
+    }
+
+    private fun toIndex(type: String) {
+        when(type){
+            Constant.USER_TYPE_PRODUCER -> mView.toWorkIndex()
+            Constant.USER_TYPE_SUPPORT -> mView.toSupportIndex()
+        }
     }
 
     /**

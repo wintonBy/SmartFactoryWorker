@@ -6,6 +6,7 @@ import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.lk.sf.smartfactoryworker.MyApplication
 import com.lk.sf.smartfactoryworker.constant.DeveloperConfig
+import com.lk.sf.smartfactoryworker.http.response.BindDevicesResponse
 import com.lk.sf.smartfactoryworker.http.response.LoginResponse
 import com.lk.sf.smartfactoryworker.http.response.UpdateInfoResponse
 import com.lk.sf.smartfactoryworker.utils.ScheduelHelper
@@ -75,6 +76,15 @@ object RetrofitClient {
      */
     fun bindDevice(deviceId:String,bind:Boolean,subscriber: BaseSubscriber<BaseResponse>){
         server.bindDevice(deviceId,bind)
+                .compose(ScheduelHelper.compose())
+                .subscribe(subscriber)
+    }
+
+    /**
+     *  获取已绑定设备
+     */
+    fun getBinddevice(subscriber: BaseSubscriber<BindDevicesResponse>){
+        server.getBindDevices()
                 .compose(ScheduelHelper.compose())
                 .subscribe(subscriber)
     }

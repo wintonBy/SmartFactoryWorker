@@ -5,9 +5,13 @@
 
     <data>
         <import type="com.lk.sf.smartfactoryworker.bean.Device"/>
+        <import type="com.lk.sf.smartfactoryworker.adapter.BindDeviceAdapter"/>
         <variable
             name="device"
             type="Device"/>
+        <variable
+            name="itemClick"
+            type="com.lk.sf.smartfactoryworker.adapter.BindDeviceAdapter.ItemClick"/>
     </data>
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -41,6 +45,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/unbind"
+            android:onClick="@{(view)->itemClick.unbind(device)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.915"

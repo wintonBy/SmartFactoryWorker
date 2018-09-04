@@ -22,6 +22,10 @@ object Constant {
     const val SP_USER_PHONE = "phone"
 
 
+    const val USER_TYPE_PRODUCER ="producer"
+    const val USER_TYPE_SUPPORT = "support"
+
+
     const val APP_VERSION = 201807131200
 
 

@@ -79,9 +79,6 @@
             android:background="@drawable/shape_button_login"
             android:text="@string/login"
             android:textColor="@android:color/white" />
-        <com.lk.sf.smartfactoryworker.widget.LoadingView
-            android:layout_width="60dp"
-            android:layout_height="30dp" />
     </LinearLayout>
 
 </layout>
